@@ -1,0 +1,17 @@
+version: "3"
+
+networks:
+  class-distributed-comm-tools:
+
+services:
+
+  mqtt:
+    image: eclipse-mosquitto
+    hostname: mqtt
+    container_name: mqtt
+    networks:
+      - class-distributed-comm-tools
+    ports:
+      - "1883:1883"
+    volumes:
+      - ./mqtt.conf:/mosquitto/config/mosquitto.conf
