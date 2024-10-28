@@ -1,3 +1,4 @@
+import random
 import time
 
 from confluent_kafka import Producer
@@ -8,12 +9,13 @@ if __name__ == "__main__":
     # Create the producer
     producer = Producer(conf)
     # Topic var
-    topic = 'mytopic'
-    # Create the msg
-    msg = f'Current time is {time.time()}'
+    topic = 'temperature'
     while True:
+        # Create the msg
+        temp = random.uniform(15.0, 40.0)
+        msg = temp
         # Publish the msg
         print(f'Publishing: {msg}')
-        producer.produce(topic, msg)
+        producer.produce(topic, f'{msg}')
         # Wait 5 seconds and publish again
-        time.sleep(5)
+        time.sleep(1)

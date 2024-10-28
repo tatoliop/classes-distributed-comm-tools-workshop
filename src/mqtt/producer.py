@@ -1,6 +1,6 @@
 import time
 import sys
-
+import random
 import paho.mqtt.client as paho
 
 if __name__ == "__main__":
@@ -10,12 +10,13 @@ if __name__ == "__main__":
         print("Couldn't connect to the mqtt broker")
         sys.exit(1)
     # Topic var
-    topic = 'mytopic'
+    topic = 'temperature'
     while True:
         # Create the msg
-        msg = f'Current time is {time.time()}'
+        temp = random.uniform(15.0, 40.0)
+        msg = temp
         # Publish the msg
-        print(f'Publishing: {msg}')
+        print(f'Publishing: temperature value: {msg}')
         client.publish(topic, msg, 0)
         # Wait 5 seconds and publish again
-        time.sleep(5)
+        time.sleep(1)

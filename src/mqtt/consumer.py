@@ -15,7 +15,7 @@ if __name__ == "__main__":
         print("Couldn't connect to the mqtt broker")
         sys.exit(1)
     # Topic var
-    topics = 'mytopic'
+    topics = 'temperature'
     client.subscribe(topics)
     try:
         print("Press CTRL+C to exit...")

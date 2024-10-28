@@ -8,7 +8,7 @@ if __name__ == "__main__":
     conf = {'bootstrap.servers': 'localhost:9092','group.id': 'myconsumer'}
     # Create the producer
     consumer = Consumer(conf)
-    topics = ['mytopic']
+    topics = ['temperature']
     try:
         consumer.subscribe(topics)
         while True:
